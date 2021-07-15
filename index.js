@@ -56,7 +56,7 @@ function addManager() {
     const email = data.email;
     const officeNum = data.officeNum;
     const projectMember = new Manager(id, name, email, officeNum);
-    assembledTeam.push(projectMember);
+    assembledTeamArray.push(projectMember);
     additionalTeamMems();
 
 })
@@ -96,11 +96,14 @@ function additionalTeamMems(){
             break;
 
 
-    }
+    };
+    
 
-})
+}) 
 
-}
+.catch(err => console.log(err));
+
+};
 
 function addEngineer(){
 
@@ -126,6 +129,11 @@ function addEngineer(){
 
     }
 
+    
+
+
+    ])
+
     .then(function(data){
 
         const id = assembledTeamArray.length++;
@@ -139,8 +147,7 @@ function addEngineer(){
 
     })
 
-
-    ])
+    .catch(err => console.log(err));
 
 }
 
@@ -168,6 +175,11 @@ function addIntern(){
 
     }
 
+    
+
+
+    ])
+
     .then(function(data){
 
         const id = assembledTeamArray.length++;
@@ -181,14 +193,13 @@ function addIntern(){
 
     })
 
-
-    ])
+    .catch(err => console.log(err));
 
 }
 
 function finalTeam(){
 
-    const htmlSectionsArray = []
+    const htmlSectionsArray = [];
     const htmlTop = `
     <!DOCTYPE html>
 <html lang="en">
@@ -244,7 +255,7 @@ function finalTeam(){
   
   <div class="col-md-4 col-sm-12 mb-4">`
 
-  htmlSectionArrays.push(htmlTop);
+  htmlSectionsArrays.push(htmlTop);
 
   for (let i =1; i < assembledTeamArray.length; i++){
 
