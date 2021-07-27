@@ -42,6 +42,7 @@ function addManager() {
 },
 {
 
+    type: "number",
     message: "What is your team manager's office number?",
     name: "officeNum"
 
@@ -55,7 +56,7 @@ function addManager() {
     const name = data.name;
     const email = data.email;
     const officeNum = data.officeNum;
-    const projectMember = new Manager(id, name, email, officeNum);
+    const projectMember = new Manager(name, id, email, officeNum);
     assembledTeamArray.push(projectMember);
     additionalTeamMems();
 
@@ -135,12 +136,12 @@ function addEngineer(){
     ])
 
     .then(function(data){
-
-        const id = assembledTeamArray.length++;
         const name = data.name;
+        const id = assembledTeamArray.length + 1;
+       
         const email = data.email;
         const github = data.github;
-        const projectMember = new Engineer(id, name, email, github);
+        const projectMember = new Engineer(name, id, email, github);
         assembledTeamArray.push(projectMember);
         additionalTeamMems();
 
@@ -182,11 +183,11 @@ function addIntern(){
 
     .then(function(data){
 
-        const id = assembledTeamArray.length++;
+        const id = assembledTeamArray.length + 1;
         const name = data.name;
         const email = data.email;
         const school = data.school;
-        const projectMember = new Intern(id, name, email, school);
+        const projectMember = new Intern(name, id, email, school);
         assembledTeamArray.push(projectMember);
         additionalTeamMems();
 
@@ -228,16 +229,15 @@ function finalTeam(){
       href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
       rel="stylesheet"
     />
-    
+    <link rel="stylesheet" href="../dist/style.css">
 </head>
 
 <body>
-<header>
 
-  
-    
+<header>
+ 
 <!-- Container for header  -->
-<div class="row">
+<div class="row" id="top-Section">
 
 <h1>${assembledTeamArray[0]}</h1>
 
@@ -251,11 +251,9 @@ function finalTeam(){
 
   <div class="row">
   
-  <div class="row row-cols-1 row-cols-md-2">
-  
-  <div class="col-md-4 col-sm-12 mb-4">`
+  `
 
-  htmlSectionsArrays.push(htmlTop);
+  htmlSectionsArray.push(htmlTop);
 
   for (let i =1; i < assembledTeamArray.length; i++){
 
@@ -263,34 +261,36 @@ function finalTeam(){
     let newEmployee = `<div class="card">
     <div class="card-body">
       <h5 class="card-title">${assembledTeamArray[i].name}</h5>
-      <p class="card-text">
-        <ul>
-        <li>${assembledTeamArray[i].title}</li>
-        <li>Employee ID: ${assembledTeamArray[i].id}</li>
-        <li>Email: <a href="mailto:${assembledTeamArray[i].email}">${assembledTeamArray[i].email}</a>></li>
+      </div>
+      <ul class="list-group list-group-flush">
+        
+        <li class="list-group-item">${assembledTeamArray[i].title}</li>
+        <li class="list-group-item">Employee ID: ${assembledTeamArray[i].id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${assembledTeamArray[i].email}">${assembledTeamArray[i].email}</a></li>
+        <li class="list-group-item">Phone: ${assembledTeamArray[i].officeNum}</li>
       `
-      if (assembledTeamArray[i].officeNum) {
-        object += `
-        <li>${assembledTeamArray[i].officeNum}</li>
-        `
-        }
+    //   if (assembledTeamArray[i].officeNum) {
+    //     newEmployee += `
+        
+    //     `
+    //     }
 
       if (assembledTeamArray[i].github) {
         newEmployee += `
-        <li>GitHub: <a href="https://github.com/${assembledTeamArray[i].github}">${assembledTeamArray[i].github}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${assembledTeamArray[i].github}">${assembledTeamArray[i].github}</a></li>
             `
         }
 
-      if (finalTeamArray[i].school) {
+      if (assembledTeamArray[i].school) {
         newEmployee += `
-        <li>School: ${assembledTeamArray[i].school}</li>
+        <li class="list-group-item">School: ${assembledTeamArray[i].school}</li>
             `
         }
 
     newEmployee +=`
         </ul>
-        </p>
-    </div>
+        
+    
     </div>
     
     `
@@ -300,8 +300,6 @@ function finalTeam(){
 
   const htmlBottom = `
   </div>
-  </div>
-  </div>
   </main>
   </body>
   </html>
@@ -309,6 +307,8 @@ function finalTeam(){
   htmlSectionsArray.push(htmlBottom);
 
   fs.writeFile(`./generated-html/${assembledTeamArray[0]}.html`, htmlSectionsArray.join(""), function (err) {
+
+    console.log("created");
       
   })
 }
