@@ -16,7 +16,7 @@
 
 ## Description 
 
-Using the inquirer package, this command-line application presents users with a series of questions that uses their inputs to easily generate a simple team profile HTML file while showcases TDD and OOP. Given what I've learned so far, I wanted to be able to implement possible QA duties (using Jest for testing functions) and this was the perfect assigment to do that. Click the link below for a video demonstration on how to use the application and navigate to the `generated-html` folder to see the generated HTML file from the demo!
+Using the inquirer package, this command-line application presents users with a series of questions that uses their inputs to easily generate a simple team profile HTML file while showcasing TDD and OOP. Given what I've learned so far, I wanted to be able to implement possible QA duties (using Jest for testing functions) and this was the perfect assigment to do that. Click the link below for a video demonstration on how to use the application and navigate to the `generated-html` folder to see the generated HTML file from the demo!
 
 
 ## Table of Contents 📖
