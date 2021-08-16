@@ -1,13 +1,29 @@
+/* Class Selectors */
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #37ecba;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(55, 236, 186, 0.5), rgba(114, 175, 211, 0.5))
+}
+
+
 .card-body{
 
     text-align: center;
-  
+    
   }
 
-  #top-Section{
+  /* ID Selectors */
 
-
-    margin-left: 190px;
+#top-Section{
+   
+    margin-left: 675px;
     font-family: 'Hind', sans-serif;
+    font-weight: bold;  
   
   }

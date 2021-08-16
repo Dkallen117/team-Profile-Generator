@@ -23,9 +23,9 @@ expect(eng.getGithub()).toBe(value);
  it("Should return \"Engineer\" when getRole() is called", () => {
 
 let value = "Engineer";
-let emp = new Engineer("Bob", 1, "123@123.com", "GitHubUser");
+let eng = new Engineer("Bob", 1, "123@123.com", "GitHubUser");
 
- expect(emp.getRole()).toBe(value);
+ expect(eng.getRole()).toBe(value);
 
  });
 

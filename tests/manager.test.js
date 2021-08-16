@@ -8,7 +8,7 @@ it("Should set office number given constructor function", () => {
 const value = "50";
 const mgr = new Manager("Bob", 1, "123@123.com", value);
 
-expect(mgr.officeNumber).toBe(value);
+expect(mgr.officeNum).toBe(value);
 
 });
 

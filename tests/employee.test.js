@@ -19,7 +19,7 @@ describe("Employee", () => {
     expect(e.id).toEqual(value);
   });
   
-  it("Can set email via constructor argument", () => {
+  it("should set email via constructor argument", () => {
     const value = "123@123.com";
     const e = new Employee("Bob", 1, value);
     expect(e.email).toEqual(value);
